@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    send the new note as JSON data containing both the content of the note (content) and the timestamp (date) to server
+    server-->>browser: status code 201 created
+    deactivate server
+
+    The Javascript code takes the input and registers an event handler that prevents the date to be sent to the server.
+    Event handler then creates new note, adds it to notes list and then send new note to the server.
