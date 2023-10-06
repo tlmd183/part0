@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://fullstack-exampleapp.herokuapp.com/new_note
+    send user input to server
+    server-->>browser: Url redirect
+    deactivate server
+
+       browser->>server: GET https://fullstack-exampleapp.herokuapp.com/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+       browser->>server: GET https://fullstack-exampleapp.herokuapp.com/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+        browser->>server: GET https://fullstack-exampleapp.herokuapp.com/main.js
+    activate server
+    server-->>browser: the JavaScript code
+    deactivate server
+
+        browser->>server: GET https://fullstack-exampleapp.herokuapp.com/date.json
+    activate server
+    server-->>browser: the raw data of the notes
+    deactivate server
+
+   The server creates a new note object, and adds it to an array called notes.
+
+
